@@ -17,6 +17,9 @@ function App() {
     let [pokemonAbilities, setPokemonAbilities] = useState("");
     let [pokemonStats, setPokemonStats] = useState([]);
     let [color1, setColor] = useState('');
+    //const movesContainer = document.querySelector(".movesContainer");
+
+
 
     const getPokemon = async () => {
         const toArray = [];
@@ -143,65 +146,71 @@ function App() {
         <div className="App">
             <form onSubmit={handleSubmit}>
                 <label>
-                    <input type="text" onChange={handleChange} placeholder="Search Pokémon"/>
+                    <input type="text" onChange={handleChange} placeholder="Search Pokémon" />
                 </label>
             </form>
             {pokemonData.map((data) => (
                 <>
                     <div className="container-fluid" style={{ backgroundColor: color1 }}>
-                        <img src={data.sprites["front_default"]} />
 
-                        
-                        <div className="table">
-                            <div className="tableBody">
-                                <div className="tableRow">
-                                    <div className="tableCell">Type</div>
-                                    <div className="tableCell">{pokemonType}</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Height</div>
-                                    <div className="tableCell">{" "}{Math.round(data.height * 3.9)}  </div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Weight</div>
-                                    <div className="tableCell">{" "} {Math.round(data.weight / 4.3)} lbs</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Dex number</div>
-                                    <div className="tableCell">{data.id}</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Abilities</div>
-                                    <div className="tableCell">{pokemonAbilities}</div>
-                                </div>
+                        <div className='info'>
+                            <div className='spriteName'>
+                                <img src={data.sprites["front_default"]} />
+                                <p className='pokemonName'><font size="+2">{data.name}</font></p>
                             </div>
-                        </div>
+                            <div className='tableInfo'>
+                                <div className="table">
+                                    <div className="tableBody">
+                                        <div className="tableRow">
+                                            <div className="tableCell">Type</div>
+                                            <div className="tableCell">{pokemonType}</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Height</div>
+                                            <div className="tableCell">{" "}{Math.round(data.height * 3.9)}  </div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Weight</div>
+                                            <div className="tableCell">{" "} {Math.round(data.weight / 4.3)} lbs</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Dex number</div>
+                                            <div className="tableCell">{data.id}</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Abilities</div>
+                                            <div className="tableCell">{pokemonAbilities}</div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div className="table2">
-                            <div className="tableBody">
-                                <div className="tableRow">
-                                    <div className="tableCell">Base HP</div>
-                                    <div className="tableCell">{data.stats[0].base_stat}</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Base Attack</div>
-                                    <div className="tableCell">{data.stats[1].base_stat}</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Base Defense</div>
-                                    <div className="tableCell">{data.stats[2].base_stat}</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Base Special Attack</div>
-                                    <div className="tableCell">{data.stats[3].base_stat}</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Base Special Defense</div>
-                                    <div className="tableCell">{data.stats[4].base_stat}</div>
-                                </div>
-                                <div className="tableRow">
-                                    <div className="tableCell">Base Speed</div>
-                                    <div className="tableCell">{data.stats[5].base_stat}</div>
+                                <div className="table">
+                                    <div className="tableBody">
+                                        <div className="tableRow">
+                                            <div className="tableCell">Base HP</div>
+                                            <div className="tableCell">{data.stats[0].base_stat}</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Base Attack</div>
+                                            <div className="tableCell">{data.stats[1].base_stat}</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Base Defense</div>
+                                            <div className="tableCell">{data.stats[2].base_stat}</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Base Special Attack</div>
+                                            <div className="tableCell">{data.stats[3].base_stat}</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Base Special Defense</div>
+                                            <div className="tableCell">{data.stats[4].base_stat}</div>
+                                        </div>
+                                        <div className="tableRow">
+                                            <div className="tableCell">Base Speed</div>
+                                            <div className="tableCell">{data.stats[5].base_stat}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
